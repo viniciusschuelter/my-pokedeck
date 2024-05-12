@@ -22,7 +22,7 @@ import { ToastrService } from 'ngx-toastr';
           </div>
           <div class='mb-12'>
             <h4 class='text-xl font-medium text-slate-900 dark:text-slate-200 font-bold mb-5'>
-              Your selected Cards <span class='text-sm font-medium'>(min: 24; max:40)</span>
+              Your selected Cards <span class='text-sm font-medium'>(min: 24; max:60)</span>
             </h4>
             @if (deckFormGroup.value["selectedCards"].length) {
             <app-selected-cards
@@ -63,7 +63,7 @@ export class FormDeckComponent {
     this.deckFormGroup = this.formBuilder.group({
       deckName: new FormControl('', [Validators.required, Validators.minLength(3)]),
       selectedCards: new FormControl([],
-        [Validators.required, Validators.minLength(24), Validators.maxLength(40)],
+        [Validators.required, Validators.minLength(24), Validators.maxLength(60)],
       ),
     });
   }

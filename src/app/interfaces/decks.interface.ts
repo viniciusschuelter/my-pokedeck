@@ -1,5 +1,10 @@
-import { ILegality } from './cards.interface';
+import { ICard, ILegality } from './cards.interface';
 
+
+export interface DeckInterface {
+  deckName: string
+  selectedCards: ICard[]
+}
 
 export interface ISet {
   id: string;
