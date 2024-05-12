@@ -11,8 +11,8 @@ export class DecksService {
   private readonly url = `${environment.baseUrl}/sets?pageSize=30`;
   private readonly http = inject(HttpClient);
 
-  getAllPaginated(): Observable<ISet[]> {
-    return this.http.get<IResponse<ISet>>(this.url)
+  getAllPaginated(page: number, searchTerm: string): Observable<ISet[]> {
+    return this.http.get<IResponse<ISet>>(`${this.url}&page=${page}`)
       .pipe(
         map(response => response.data),
         catchError(

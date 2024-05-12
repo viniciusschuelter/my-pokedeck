@@ -12,8 +12,8 @@ export class CardsService {
   private readonly url = `${environment.baseUrl}/cards?pageSize=30`;
   private readonly http = inject(HttpClient);
 
-  getAllPaginated(): Observable<ICard[]> {
-    return this.http.get<IResponse<ICard>>(this.url)
+  getAllPaginated(page: number, searchTerm: string): Observable<ICard[]> {
+    return this.http.get<IResponse<ICard>>(`${this.url}&page=${page}`)
       .pipe(
         map(response => response.data),
         catchError(

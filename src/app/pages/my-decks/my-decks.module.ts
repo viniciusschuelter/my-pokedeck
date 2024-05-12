@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MyDecksComponent } from './my-decks.component';
 import { Route, RouterModule } from '@angular/router';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { DeckListComponent } from '../../components/deck-list/deck-list.component';
 
 const routes: Route[] = [
   {
@@ -13,9 +13,7 @@ const routes: Route[] = [
 @NgModule({
   declarations: [MyDecksComponent],
   imports: [
-    AsyncPipe,
-    NgIf,
-    NgFor,
+    DeckListComponent,
     RouterModule.forChild(routes),
   ],
   exports: [MyDecksComponent],
