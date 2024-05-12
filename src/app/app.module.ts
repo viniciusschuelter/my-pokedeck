@@ -7,15 +7,21 @@ import {
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    ToastrModule.forRoot()
   ],
-  providers: [provideClientHydration()],
+  providers: [
+    provideClientHydration(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
