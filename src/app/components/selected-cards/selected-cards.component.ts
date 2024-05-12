@@ -12,7 +12,7 @@ import { ICard } from '../../interfaces/cards.interface';
       <div class='h-[80px] relative'>
         <app-card class='' [cardSignal]='card'></app-card>
         <div class='cursor-pointer transition-all opacity-80 hover:opacity-100 scale-75 hover:scale-100 bg-red-600 font-bold absolute rounded-xl top-[-8px] right-[-8px] text-white px-2'
-        (click)='removeCard.emit(idx)'>x</div>
+        (click)='removeCard.emit(idx)'>X</div>
       </div>
       }
     </div>

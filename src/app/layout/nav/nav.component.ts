@@ -16,11 +16,11 @@ import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
         <a href="#" class="flex items-center ">
-<!--          <img-->
-<!--            src="assets/images/logo.png"-->
-<!--            class="h-[6rem]"-->
-<!--            alt="Dattebayo Logo"-->
-<!--          />-->
+          <img
+            src="assets/pokelogo.webp"
+            class="h-[6rem]"
+            alt="Dattebayo Logo"
+          />
           My Pokedeck
         </a>
         <div class="flex md:order-2">

@@ -2,8 +2,9 @@ import { ICard, ILegality } from './cards.interface';
 
 
 export interface DeckInterface {
-  deckName: string
-  selectedCards: ICard[]
+  id: number;
+  deckName: string;
+  selectedCards: ICard[];
 }
 
 export interface ISet {

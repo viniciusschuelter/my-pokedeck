@@ -12,6 +12,11 @@ const routes: Route[] = [
     loadChildren: () =>
       import('./pages/form-deck/form-deck.module').then((m) => m.FormDeckModule),
   },
+  {
+    path: 'deck/:id',
+    loadChildren: () =>
+      import('./pages/form-deck/form-deck.module').then((m) => m.FormDeckModule),
+  },
   // {
   //   path: 'decks',
   //   loadChildren: () =>
