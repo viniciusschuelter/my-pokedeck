@@ -21,7 +21,7 @@ import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher
             class="h-[6rem]"
             alt="Dattebayo Logo"
           />
-          My Pokedeck
+          <div class='text-xl sm:text-2xl font-bold text-slate-700 tracking-tight dark:text-slate-300'>My Pokedeck</div>
         </a>
         <div class="flex md:order-2">
           <app-switcher-theme></app-switcher-theme>

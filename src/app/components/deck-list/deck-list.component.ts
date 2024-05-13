@@ -1,30 +1,36 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ICard } from '../../interfaces/cards.interface';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { CardsService } from '../../services/cards.service';
 import { BehaviorSubject, combineLatest, debounce, interval, Observable, scan, switchMap, tap } from 'rxjs';
 import { CardComponent } from '../card/card.component';
 import { InfiniteScrollerDirective } from '../../directives/infinite-scroller.directive';
+import { LoadingComponent } from '../loading/loading.component';
+import { SearchComponent } from '../search/search.component';
 
 
 @Component({
   standalone: true,
   selector: 'app-deck-list',
   template: `
+    <app-search (searchTerm)='searchTerm$.next($event)'></app-search>
     @if (cards$ | async; as cards) {
-      <div
-      infiniteScroller
-      class="flex flex-wrap justify-center gap-8"
-      [disablePagination]="disablePagination || loading"
-      (nextBatch)="goToPage(currPage + 1)"
-      >
-        @for (card of cards; track card) {
-          <app-card [cardSignal]='card' (click)='selectCard.emit(card)'></app-card>
-        }
-      </div>
+    <div
+    infiniteScroller
+    class="flex flex-wrap justify-center gap-8"
+    [disablePagination]="disablePagination || loading"
+    (nextBatch)="goToPage(currPage + 1)"
+    >
+    @for (card of cards; track card) {
+    <app-card [cardSignal]='card' (click)='selectCard.emit(card)'></app-card>
+    }
+    </div>
+    }
+    @if (loading) {
+    <app-loading></app-loading>
     }
   `,
-  imports: [ AsyncPipe, CardComponent, InfiniteScrollerDirective ]
+  imports: [AsyncPipe, CardComponent, LoadingComponent, InfiniteScrollerDirective, SearchComponent],
 })
 export class DeckListComponent {
 
@@ -41,7 +47,7 @@ export class DeckListComponent {
     this.currPage,
   );
 
-  cards$: Observable<ICard[]>  = combineLatest([
+  cards$: Observable<ICard[]> = combineLatest([
     this.currentPage$,
     this.searchTerm$.pipe(
       debounce(() => interval(400)),

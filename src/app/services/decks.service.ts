@@ -12,7 +12,10 @@ export class DecksService {
   private readonly http = inject(HttpClient);
 
   getAllPaginated(page: number, searchTerm: string): Observable<ISet[]> {
-    return this.http.get<IResponse<ISet>>(`${this.url}&page=${page}`)
+    let queryParams = ''
+    page && (queryParams += `&page=${page}`)
+    searchTerm && (queryParams += `&q=name:${searchTerm}*`)
+    return this.http.get<IResponse<ISet>>(`${this.url}${queryParams}`)
       .pipe(
         map(response => response.data),
         catchError(

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <app-nav></app-nav>
     <main
-      class='h-full antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900'
+      class='main-height h-full antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900'
     >
       <router-outlet></router-outlet>
     </main>

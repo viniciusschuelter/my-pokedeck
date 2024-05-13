@@ -17,16 +17,16 @@ const routes: Route[] = [
     loadChildren: () =>
       import('./pages/form-deck/form-deck.module').then((m) => m.FormDeckModule),
   },
-  // {
-  //   path: 'decks',
-  //   loadChildren: () =>
-  //     import(./pages/decks/decks.module').then((m) => m.DecksModule),
-  // },
-  // {
-  //   path: 'cards',
-  //   loadChildren: () =>
-  //     import('./pages/cards/cards.module').then((m) => m.CardsModule),
-  // },
+  {
+    path: 'decks',
+    loadChildren: () =>
+      import('./pages/decks/decks.module').then((m) => m.DecksModule),
+  },
+  {
+    path: 'cards',
+    loadChildren: () =>
+      import('./pages/cards/cards.module').then((m) => m.CardsModule),
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

@@ -11,7 +11,7 @@ import { DeckInterface } from '../../interfaces/decks.interface';
   template: `
     <div>
       <div
-        class='text-center text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 mb-10'>
+        class='text-center text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 pt-4 mb-10'>
         {{ !deck ? 'Create' : 'Update' }} Deck
       </div>
       <div class='grid grid-cols-2 gap-4'>
@@ -44,7 +44,7 @@ import { DeckInterface } from '../../interfaces/decks.interface';
           </button>
         </form>
         <div>
-          <h4 class='text-xl font-medium text-slate-900 dark:text-slate-200 font-bold mb-5'>Select here your Cards</h4>
+          <h4 class='text-xl font-medium text-slate-900 dark:text-slate-200 font-bold text-center mb-5'>Select here your Cards</h4>
           <app-deck-list (selectCard)='selectedCard($event)'></app-deck-list>
         </div>
       </div>

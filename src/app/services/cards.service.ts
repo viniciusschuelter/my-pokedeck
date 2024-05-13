@@ -13,7 +13,10 @@ export class CardsService {
   private readonly http = inject(HttpClient);
 
   getAllPaginated(page: number, searchTerm: string): Observable<ICard[]> {
-    return this.http.get<IResponse<ICard>>(`${this.url}&page=${page}`)
+    let queryParams = ''
+    page && (queryParams += `&page=${page}`)
+    searchTerm && (queryParams += `&q=name:${searchTerm}*`)
+    return this.http.get<IResponse<ICard>>(`${this.url}${queryParams}`)
       .pipe(
         map(response => response.data),
         catchError(
